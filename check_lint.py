@@ -1,15 +1,14 @@
-"""
-Simple To-Do List Program.
 
-This program allows users to manage a to-do list by adding,
-viewing, and removing tasks through a simple menu interface.
-"""
+#Simple To-Do List Program.
+
+# This program allows users to manage a to-do list by adding,
+# viewing, and removing tasks through a simple menu interface.
+
 
 TASKS = []
 
 
 def show_menu():
-    """Display the menu options."""
     print("\n--- To-Do List Menu ---")
     print("1. View Tasks")
     print("2. Add Task")
@@ -18,7 +17,6 @@ def show_menu():
 
 
 def view_tasks():
-    """Display all tasks in the to-do list."""
     if not TASKS:
         print("\nYour to-do list is empty!")
     else:
@@ -28,7 +26,6 @@ def view_tasks():
 
 
 def add_task():
-    """Add a new task to the to-do list."""
     task = input("\nEnter the task you want to add: ").strip()
     if task:
         TASKS.append(task)
@@ -38,7 +35,6 @@ def add_task():
 
 
 def remove_task():
-    """Remove a task from the to-do list."""
     view_tasks()
     if TASKS:
         try:
@@ -53,7 +49,6 @@ def remove_task():
 
 
 def main():
-    """Main program loop to manage the to-do list."""
     while True:
         show_menu()
         choice = input("\nEnter your choice: ").strip()
