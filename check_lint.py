@@ -1,12 +1,11 @@
-"""This python files defines functions for sorting using different standard techniques like heapsort and mergesort"""
-
 def mergesort(arr):
+    """merge sort algorithm"""
     if len(arr) <= 1:
         return arr
     mid = len(arr) // 2
     l = mergesort(arr[:mid])
     r = mergesort(arr[mid:])
-    
+
     merged = []
     i = j = 0
     while i < len(l) and j < len(r):
@@ -20,8 +19,8 @@ def mergesort(arr):
     merged += r[j:]
     return merged
 
-def heapsort(arr):
     def heapify(arr, n, i):
+        """Maintains the heap property"""
         largest = i
         l = 2 * i + 1
         r = 2 * i + 2
@@ -34,11 +33,29 @@ def heapsort(arr):
             arr[i], arr[largest] = arr[largest], arr[i]
             heapify(arr, n, largest)
 
+def heapsort(arr):
+    """heap sort algorithm"""
+
+
     n = len(arr)
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
-    
+
     for i in range(n - 1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]
         heapify(arr, i, 0)
+    return arr
+
+
+def bubblesort(arr):
+    """bubble sort algorithm"""
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            break
     return arr
