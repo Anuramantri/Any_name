@@ -1,5 +1,7 @@
+"""Sorting algorithms: merge sort, heap sort, and bubble sort."""
+
 def mergesort(arr):
-    """merge sort algorithm"""
+    """Merge sort algorithm."""
     if len(arr) <= 1:
         return arr
     mid = len(arr) // 2
@@ -19,24 +21,24 @@ def mergesort(arr):
     merged += r[j:]
     return merged
 
-    def heapify(arr, n, i):
-        """Maintains the heap property"""
-        largest = i
-        l = 2 * i + 1
-        r = 2 * i + 2
 
-        if l < n and arr[l] > arr[largest]:
-            largest = l
-        if r < n and arr[r] > arr[largest]:
-            largest = r
-        if largest != i:
-            arr[i], arr[largest] = arr[largest], arr[i]
-            heapify(arr, n, largest)
+def heapify(arr, n, i):
+    """Maintains the heap property."""
+    largest = i
+    l = 2 * i + 1
+    r = 2 * i + 2
+
+    if l < n and arr[l] > arr[largest]:
+        largest = l
+    if r < n and arr[r] > arr[largest]:
+        largest = r
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
 
 def heapsort(arr):
-    """heap sort algorithm"""
-
-
+    """Heap sort algorithm."""
     n = len(arr)
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
@@ -48,7 +50,7 @@ def heapsort(arr):
 
 
 def bubblesort(arr):
-    """bubble sort algorithm"""
+    """Bubble sort algorithm."""
     n = len(arr)
     for i in range(n):
         swapped = False
